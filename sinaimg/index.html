@@ -116,7 +116,8 @@
                     // 图片上传成功
                     success: function (result) {
                         if (result.code == 1){
-                            $('#url-res-txt').val($('#url-res-txt').val() + "\n" + result.imgurl);
+                            var url_res_txt = $('#url-res-txt').val();
+                            $('#url-res-txt').val(url_res_txt ? url_res_txt + "\n" + result.imgurl : result.imgurl);
                             $('.preview').append('<div><img src="'+result.imgurl+'" ><code class="title1">'+result.imgurl+'</code></div>');
                         }else{
                             layer.msg('第'+j+'个图片上传失败');
